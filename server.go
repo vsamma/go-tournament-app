@@ -17,8 +17,6 @@ func handleRequests() {
 
 	myRouter := mux.NewRouter().StrictSlash(true)
 	myRouter.HandleFunc("/", homePage)
-	myRouter.HandleFunc("/products", c.GetAllProducts).Methods("GET")
-	myRouter.HandleFunc("/products", c.PostProduct).Methods("POST")
 	myRouter.HandleFunc("/fund", c.addFundsToPlayer).Methods("GET").Queries("playerId", "{playerId}", "points", "{points}")
 	myRouter.HandleFunc("/take", c.takeFundsFromPlayer).Methods("GET").Queries("playerId", "{playerId}", "points", "{points}")
 	myRouter.HandleFunc("/announceTournament", c.announceTournament).Methods("GET").Queries("tournamentId", "{tournamentId}", "deposit", "{deposit}")
