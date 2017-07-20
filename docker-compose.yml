@@ -1,0 +1,14 @@
+api:  
+  build: ./
+  ports: 
+    - 3000:3000
+  volumes:
+    - ./:/go/src/go-tournament
+  links:
+    - database
+  environment:
+    - DB_NAME=project
+
+database:  
+  image: mongo:3.0
+  command: mongod --smallfiles --quiet --logpath=/dev/null
